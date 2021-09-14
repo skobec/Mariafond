@@ -1,0 +1,67 @@
+.modal
+  display: none
+  position: fixed
+  background-color: rgba(0, 0, 0, 0.5)
+  overflow-y: auto
+  &-window
+    position: relative
+    margin: 50px auto
+    max-width: 900px
+    background-color: #fff
+    overflow-y: auto
+    &__img 
+      width: 100%
+      img
+        width: 100%
+        object-fit: cover
+        object-position: center
+    &__text 
+      padding: 50px
+      a 
+        text-decoration: none
+      a:hover 
+        color: #fff
+  &__btn 
+    &-close
+      position: fixed
+      width: 50px
+      right: 10px
+      top: 10px
+    &-close:hover
+      cursor: pointer
+
+.modal-2
+  display: none
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  background-color: rgba(0, 0, 0, 0.5)
+  overflow-y: auto
+  z-index: 10
+  &-window
+    position: relative
+    margin: 50px auto
+    max-width: 900px
+    overflow-y: auto
+    &__img 
+      width: 100%
+      img 
+        margin: 0 auto
+        height: 90vh
+        object-fit: cover
+        object-position: center
+    &__text 
+      padding: 50px
+      a 
+        text-decoration: none
+      a:hover 
+        color: #fff
+  &__btn 
+    &-close
+      position: fixed
+      width: 50px
+      right: 10px
+      top: 10px
+    &-close:hover
+      cursor: pointer
