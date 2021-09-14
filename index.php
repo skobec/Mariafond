@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
@@ -72,6 +72,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-12">
+            <div>
+              Массив по частям
+                <div><b>Имя <span id="nameJson"></span></b></div>
+                <div><b>id <span id="idJson"></span></b></div>
+             </div>
+
+             ---
+             Весь массив
+             <b><div id="allJson">
+               
+             </div>
+             </b>
           <div class="main__text">
             <div class="main__text-title">
               <img id="heart_1" src="img/main/Heart1.png" alt="heart1">
@@ -291,7 +303,7 @@
             </div>
             <!-- /.modal-window__img -->
             <div class="modal-2-window__text">
-              <img class="modal__btn-close" src="img/header/close_btn.svg" alt="Закрыть окно">
+               <img class="modal__btn-close" src="img/header/close_btn.svg" alt="Закрыть окно">
             </div>
             <!-- /.modal-window__text -->
           </div>
@@ -339,7 +351,7 @@
         <div class="col-md-7 col-12">
           <div class="about__text">
             <div class="about__text-title">
-              Благотворительный фонд 
+              Благотворительный фонд
               с открытым сердцем
             </div>
             <!-- /.about__text-title -->
@@ -392,7 +404,7 @@
             </div>
             <!-- /.openBook__text-subtitle -->
             <div class="openBook__text-body">
-              Целью нашей работы является не только сбор средств больным детям, но и открытость каждого вашего взноса. Мы не скрываем расходы фонда на рекламу и АХО, а также полученные фондом деньги от юридических лиц. 
+              Целью нашей работы является не только сбор средств больным детям, но и открытость каждого вашего взноса. Мы не скрываем расходы фонда на рекламу и АХО, а также полученные фондом деньги от юридических лиц.
               <span>Давайте сделаем Благотворительность прозрачнее.</span>
             </div>
             <!-- /.openBook__text-body -->
@@ -612,6 +624,20 @@
     });
     $('.modal__btn-close').on("click", function(){
       $('.modal-2').hide(100);
+    });
+    $.getJSON('../admin/db.json',
+      function(data) {
+      const jsonFile = data
+      const name = document.getElementById("nameJson");
+      const id = document.getElementById("idJson");
+
+      // тут выводим загруженный json в определенные поля
+      name.innerHTML = `${jsonFile[0].name} ${jsonFile[0].last_name} на сумму ${jsonFile[0].sum2}`
+      id.innerHTML = jsonFile[0].id
+      console.log('json file', jsonFile);
+
+      // Если надо выводим весь массив
+      document.getElementById("allJson").append(JSON.stringify(jsonFile))
     });
   });
 </script>
